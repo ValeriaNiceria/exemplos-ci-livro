@@ -15,9 +15,9 @@
         <a href="<?=base_url('index.php/Institucional/servicos') ?>">Serviços</a>
     </li>
     <li class="<?=($this->router->fetch_class() == 'Contato' && $this->router->fetch_method() == 'TrabalheConosco') ? 'active' : null; ?>">
-        <a href="<?=base_url('index.php/Contato/trabalhe-conosco') ?>">Trabalhe Conosco</a>
+        <a href="<?=base_url('index.php/Contato/trabalheconosco') ?>">Trabalhe Conosco</a>
     </li>
     <li class="<?=($this->router->fetch_class() == 'Contato' && $this->router->fetch_method() == 'FaleConosco') ? 'active' : null;?>">
-        <a href="<?=base_url('index.php/Contato/fale-conosco') ?>">Fale Conosco</a>
+        <a href="<?=base_url('index.php/Contato/faleconosco') ?>">Fale Conosco</a>
     </li>
 </ul>
