@@ -7,7 +7,7 @@ class Institucional extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->output->cache(1440); //Corresponde a 24 horas até p cache ser atualizado
+        $this->output->cache(1440); //Corresponde a 24 horas até o cache ser atualizado
     }
     
     public function index()
