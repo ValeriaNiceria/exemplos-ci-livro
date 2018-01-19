@@ -14,7 +14,7 @@
                 </div>
             <?php elseif ($this->session->flashdata('success_msg')) : ?>
                 <div class="alert alert-success">
-                    <?=$this->session->flashdata('sucess_msg')?>
+                    <?=$this->session->flashdata('success_msg')?>
                 </div>
             <?php endif; ?>
 
