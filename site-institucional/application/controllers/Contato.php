@@ -16,10 +16,29 @@ class Contato extends CI_Controller {
         $data['title'] = "LCI | Fale Conosco";
         $data['description'] = "Exercício de exemplo do capítulo 6 do livro CodeIgniter";
 
-        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('assunto', 'Assunto', 'trim|required|min_length[5]');
-        $this->form_validation->set_rules('mensagem', 'Mensagem', 'trim|required|min_length[30]');
+        $rules = array(
+            array(
+                'field' => 'nome',
+                'label' => 'Nome', 
+                'trim|required|min_length[3]'
+            ),
+            array(
+                'field' => 'email',
+                'label' => 'Email', 
+                'trim|required|valid_email'
+            ),
+            array(
+                'field' => 'assunto',
+                'label' => 'Assunto', 
+                'trim|required|min_length[5]'
+            ),
+            array(
+                'field' => 'mensagem',
+                'label' => 'Mensagem', 
+                'trim|required|min_length[30]'
+            )
+        );
+        $this->form_validation->set_rules($rules);
 
         if ($this->form_validation->run() == FALSE) {
             $data['formErrors'] = validation_errors();
@@ -64,7 +83,7 @@ class Contato extends CI_Controller {
                 if ($emailStatus) {
                     $this->session->set_flashdata('successs_msg', 'Contato recebido com sucesso!');
                 } else {
-                    $data['formErrors'] = "Desculpe! Não foi possível enviar o seu contato. Tente novamente mais tarde!";
+                    $data['formErrors'] = "Desculpe! Não foi possível enviar o seu contato. Tente novamente mais tarde!" . $this->email->print_debugger() ;
                 }
             }
         }
