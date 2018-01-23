@@ -1,0 +1,10 @@
+mysql -u root -p
+
+
+CREATE USER 'root'@'%' IDENTIFIED BY 'P@ssw0rd';
+grant all privileges on *.* to 'root'@'%' WITH GRANT OPTION;
+flush privileges;
+drop user 'root'@'localhost';
+drop user 'root'@'127.0.0.1';
+drop user 'root'@'::1';
+flush privileges;
