@@ -5,6 +5,9 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('site');
+		$data['title'] = "Bem vindo ao Curso CodeIgniter";
+		$data['view'] = 'home.php';
+
+		$this->load->view('site', $data);
 	}
 }

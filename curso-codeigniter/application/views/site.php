@@ -4,16 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Bem vindo ao Curso CodeIgniter</title>
+	<title><?php echo $title; ?></title>
 </head>
 <body>
 
 <div id="container">
+
+	<a href="<?php echo base_url(); ?>">Home</a>
+	<a href="<?php echo base_url('sobre'); ?>">Sobre</a>
+	<a href="<?php echo base_url('contato'); ?>">Contato</a>
+
 	<h1>Bem vindo ao CodeIgniter!</h1>
 
-	<div id="body">
-		Página inicial do curso de codeigniter
+	<div class="container">
+		<?php $this->load->view($view); ?>
 	</div>
+
 
 </div>
 
