@@ -1,0 +1,22 @@
+* sudo a2enmod rewrite
+
+* sudo service apache2 restart
+
+* sudo vim /etc/apache2/sites-available/000-default.conf
+
+* Após -> DocumentRoot /var/www/html 
+
+* Adicionar:
+<Directory "/var/www/html">
+AllowOverrride All
+</Directory>
+
+----------------------------------------------------
+
+.htaccess
+
+<IfModule mod_rewrite.c> 
+RewriteEngine on 
+RewriteCond $1 !^(index\.php|phpinfo\.php|images|robots\.txt|sitemap\.xml\.gz|sitemap\.xml|assets)
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
