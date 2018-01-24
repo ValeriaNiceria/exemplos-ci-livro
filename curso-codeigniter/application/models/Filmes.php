@@ -23,4 +23,8 @@ class Filmes extends CI_Model {
         $this->db->insert('filmes', $attributes);
     }
 
+    public function atualizar_filme($id, $attributes) {
+        $this->db->where('id', $id);
+        $this->db->update('filmes', $attributes);
+    }
 }
