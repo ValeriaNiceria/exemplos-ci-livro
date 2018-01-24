@@ -1,9 +1,3 @@
-<p>Página inicial do curso de codeigniter</p>
-
-<pre>
-<?php print_r($filmes_encontrados); ?>
-</pre>
-
 <?php
 
 foreach($filmes_encontrados as $filme) :

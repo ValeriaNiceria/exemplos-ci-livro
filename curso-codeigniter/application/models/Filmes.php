@@ -18,5 +18,9 @@ class Filmes extends CI_Model {
         return $query->result();
     }
 
+    public function cadastrar_filme($attributes) {
+        //$sql = "INSERT INTO filmes () VALUES ()";
+        $this->db->insert('filmes', $attributes);
+    }
 
 }

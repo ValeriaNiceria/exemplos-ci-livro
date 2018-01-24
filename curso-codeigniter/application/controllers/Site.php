@@ -10,6 +10,13 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
+		$attributes = array(
+			'filme_nome' => 'Mad Max',
+			'filme_descricao' => 'Filme ação'
+		);
+
+		$this->Filmes->cadastrar_filme($attributes);
+
 		$data['title'] = "Bem vindo ao Curso CodeIgniter";
 		$data['view'] = 'home.php';
 
