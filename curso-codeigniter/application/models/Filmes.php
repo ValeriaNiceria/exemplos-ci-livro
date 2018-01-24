@@ -27,4 +27,9 @@ class Filmes extends CI_Model {
         $this->db->where('id', $id);
         $this->db->update('filmes', $attributes);
     }
+
+    public function deletar_filme($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('filmes');
+    }
 }
