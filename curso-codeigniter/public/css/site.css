@@ -11,3 +11,10 @@
 h1{
     color: #900;
 }
+
+.lista_filmes_inicio{
+    background-color: #efefef;
+    padding: 3px;
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+}
