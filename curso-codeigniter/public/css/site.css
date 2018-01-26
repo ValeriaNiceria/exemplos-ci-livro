@@ -42,3 +42,12 @@ input[type=submit]{
     display: block;
     margin-top: 5px;
 }
+
+.errors {
+    width: 60%;
+    color: rgb(34, 32, 32);
+    background-color: rgb(231, 127, 127);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
