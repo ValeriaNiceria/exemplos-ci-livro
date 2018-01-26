@@ -9,4 +9,6 @@ foreach($filmes_encontrados as $filme) :
 
 endforeach;
 
+echo $paginacao_filmes;
+
 ?>

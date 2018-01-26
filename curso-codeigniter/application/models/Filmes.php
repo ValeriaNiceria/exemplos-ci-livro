@@ -6,14 +6,14 @@ class Filmes extends CI_Model {
         parent:: __construct();
     }
 
-    public function listar_filmes() {
+    public function listar_filmes($por_pagina, $inicio) {
         //$sql = "SELECT * FROM filmes";
         //$this->db->select('filme_nome', 'filme_preco');
-        //$this->db->select()->from("filmes");
         //$this->db->select()->from('filmes')->where('id', 1);   
         //$this->db->select()->from("filmes")->limit(2);
-        //$this->db->select()->from("filmes")->join('lancamentos', 'filmes.id = lancamentos.filmes');             
-        $query = $this->db->get("filmes");
+        //$this->db->select()->from("filmes")->join('lancamentos', 'filmes.id = lancamentos.filmes');
+        $this->db->select()->from("filmes")->limit($por_pagina, $inicio);             
+        $query = $this->db->get();
         //return $query->row(); //Retorna somente um valor
         return $query->result();
     }
@@ -31,5 +31,10 @@ class Filmes extends CI_Model {
     public function deletar_filme($id) {
         $this->db->where('id', $id);
         $this->db->delete('filmes');
+    }
+
+    public function get_total_filmes() {
+        $query = $this->db->get('filmes');
+        return $query->num_rows();
     }
 }
