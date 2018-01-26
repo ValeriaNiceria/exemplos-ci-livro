@@ -18,3 +18,27 @@ h1{
     border: solid 1px #ccc;
     margin-bottom: 10px;
 }
+
+.menu {
+    margin: 10px;
+    font-family: sans-serif;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 0 0;
+}
+
+input[type=text],
+textarea{
+    width: 40%;
+    border: 1px solid #333;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+input[type=submit]{
+    display: block;
+    margin-top: 5px;
+}

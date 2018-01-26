@@ -24,7 +24,7 @@ class Site extends CI_Controller {
 
 
 		$por_pagina = 2;
-		$inicio = $this->uri->segment(2);
+		$inicio = $this->uri->segment(2); //Está pegando o segundo campo da url
 
 		$data['title'] = "Bem vindo ao Curso CodeIgniter";
 		$data['view'] = 'home.php';

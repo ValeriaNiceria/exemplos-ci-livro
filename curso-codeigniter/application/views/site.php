@@ -10,16 +10,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
+	<div class="menu">
+		<?php echo anchor('./', 'Home'); ?>
+		<?php echo anchor('cadastro', 'Cadastro'); ?>
+		<?php echo anchor('contato', 'Contato'); ?>
+		<?php  echo anchor('sobre','Sobre'); ?>
+	</div>
 
-	<a href="<?php echo base_url(); ?>">Home</a>
-	<a href="<?php echo base_url('sobre'); ?>">Sobre</a>
-	<a href="<?php echo base_url('contato'); ?>">Contato</a>
-
-	<h1></h1>
-
-	<?php echo heading('Bem vindo ao CodeIgniter!', 1); ?> <!-- Substitui o 'h(1..6)' -->
-
-	<?php $this->load->view($view); ?>
+	<div class="container">
+		<?php $this->load->view($view); ?>
+	</div>
 	
 </div>
 

@@ -1,3 +1,5 @@
+<?php echo heading('Filmes', 1); ?> <!-- Substitui o 'h(1..6)' -->
+
 <?php
 
 foreach($filmes_encontrados as $filme) :
