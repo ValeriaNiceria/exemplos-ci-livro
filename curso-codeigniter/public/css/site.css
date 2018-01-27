@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 #container{
@@ -20,10 +21,16 @@ h1{
 }
 
 .menu {
-    margin: 10px;
-    font-family: sans-serif;
+    margin: 20px 0 20px 0;
 }
 
+.menu a {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #900;
+    border-radius: 3px;
+}
 
 label {
     display: block;

@@ -43,12 +43,11 @@ class Contato extends CI_Controller {
             if (!$this->form_validation->run()) {
                 $data['errors'] = validation_errors();
             }
-
-
-            $data['title'] = 'Contato';
-            $data['view'] = 'contato.php';
-
-            $this->load->view('site', $data);
         endif;
+
+        $data['title'] = 'Contato';
+        $data['view'] = 'contato.php';
+
+        $this->load->view('site', $data);
     }
 }
