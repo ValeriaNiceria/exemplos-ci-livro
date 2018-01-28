@@ -42,6 +42,21 @@ class Contato extends CI_Controller {
 
             if (!$this->form_validation->run()) {
                 $data['errors'] = validation_errors();
+            } else {
+                $this->load->library('email');
+
+                $config = $this->email->setConfiguration();
+                $this->email->initialize($config);
+
+                $this->email->to('valerianiceria@gmail.com');
+                $this->email->from($this->input->post('email'));
+                $this->email->subject($this->input->post('assunto'));
+                $this->email->message($this->input->post('mensagem'));
+
+                if ($this->email->send()) {
+                    $data['enviado'] = true;
+                }
+               
             }
         endif;
 
