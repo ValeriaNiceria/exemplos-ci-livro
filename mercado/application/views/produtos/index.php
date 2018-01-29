@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Produtos</title>
-    <?php echo link_tag('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'); ?> 
+    <?php echo link_tag('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'); ?>
 </head>
 <body>
     
@@ -20,9 +20,9 @@
 
             <?php foreach ($produtos as $produto) : ?>
             <tr>
-                <td><?= $produto["nome"]; ?></td>
-                <td><?= $produto["descricao"]; ?></td>
-                <td><?= $produto["preco"]; ?></td>
+                <td><?= $produto->nome; ?></td>
+                <td><?= $produto->descricao; ?></td>
+                <td><?= $produto->preco; ?></td>
             </tr>
             <?php endforeach; ?>
 
