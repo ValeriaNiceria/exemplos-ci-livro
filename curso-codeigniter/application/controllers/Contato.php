@@ -43,7 +43,7 @@ class Contato extends CI_Controller {
             if (!$this->form_validation->run()) {
                 $data['errors'] = validation_errors();
             } else {
-                $this->load->library('email');
+                $this->load->library("email");
 
                 $config = $this->email->setConfiguration();
                 $this->email->initialize($config);
