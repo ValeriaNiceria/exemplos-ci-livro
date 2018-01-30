@@ -7,13 +7,12 @@ class Produtos extends CI_Controller {
     public function __construct() 
     {
         parent::__construct();
-        $this->load->helper("currency", "url");
+        $this->load->helper(array("currency", "form"));
+        
     }
 
     public function index()
     {
-        $this->load->database();
-
         $this->load->model("ProdutosModel");
         $produtos = $this->ProdutosModel->buscaProdutos();
 
