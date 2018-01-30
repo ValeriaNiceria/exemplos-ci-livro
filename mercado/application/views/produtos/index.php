@@ -22,7 +22,7 @@
             <tr>
                 <td><?= $produto->nome; ?></td>
                 <td><?= $produto->descricao; ?></td>
-                <td><?= $produto->preco; ?></td>
+                <td><?= numeroEmReais($produto->preco); ?></td>
             </tr>
             <?php endforeach; ?>
 
