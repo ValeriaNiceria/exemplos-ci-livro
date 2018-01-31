@@ -4,20 +4,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
 
+    public $dados = array();
+
     public function __construct()
     {
         parent::__construct();
         $this->load->helper('form');
+        $this->load->model("UsuariosModel");
+    }
+
+    public function lista() 
+    {
+        $this->dados['title'] = "Lista de Usuários";
+        $this->dados['view'] = "usuarios/lista";
+
+        $usuarios = $this->UsuariosModel->buscaUsuarios();
+        $this->dados['usuarios'] = $usuarios;
+
+        $this->load->view("index", $this->dados);
     }
 
     public function formulario_cadastro() 
     {
-        $dados = array();
+        $this->dados['title'] = "Cadastro de usuários";
+        $this->dados['view'] = "usuarios/cadastro_usuario";
 
-        $dados['title'] = "Cadastro de usuários";
-        $dados['view'] = "usuarios/cadastro_usuario.php";
-
-        $this->load->view("index", $dados);
+        $this->load->view("index", $this->dados);
     }
 
     public function novo()
@@ -28,7 +40,6 @@ class Usuarios extends CI_Controller {
             "senha" => md5($this->input->post("senha")) //senha criptografada
         );
 
-        $this->load->model("UsuariosModel");
         $this->UsuariosModel->salva($usuario);
         $this->load->view("usuarios/novo");
     }

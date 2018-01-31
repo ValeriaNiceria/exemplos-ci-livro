@@ -6,4 +6,10 @@ class UsuariosModel extends CI_Model {
     {
         $this->db->insert('usuarios', $usuario);
     }
+
+    public function buscaUsuarios() 
+    {
+        $query = $this->db->get("usuarios");
+        return $query->result();
+    }
 }
