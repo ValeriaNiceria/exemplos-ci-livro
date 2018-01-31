@@ -7,21 +7,23 @@ class Produtos extends CI_Controller {
     public function __construct() 
     {
         parent::__construct();
-        $this->load->helper(array("currency", "form"));
+        $this->load->helper(array("currency"));
         
     }
 
-    public function index()
+    public function lista() 
     {
+        $dados = array();
+
+        $dados['title'] = "Lista de Produtos";
+        $dados['view'] = "produtos/lista.php";
+
         $this->load->model("ProdutosModel");
         $produtos = $this->ProdutosModel->buscaProdutos();
 
-        $dados = array();
         $dados['produtos'] = $produtos;
 
-        $this->load->view("produtos/index", $dados);
-
+        $this->load->view("index", $dados);
     }
-    
 
 }

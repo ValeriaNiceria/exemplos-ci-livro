@@ -1,0 +1,11 @@
+.menu {
+    margin: 20px 0 20px 0;
+}
+
+.menu a {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(8, 126, 204);
+    border-radius: 3px;
+}
