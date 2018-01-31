@@ -8,7 +8,7 @@
     </tr>
     <?php foreach ($produtos as $produto) : ?>
         <tr>
-            <td><?= $produto->nome; ?></td>
+            <td><?= anchor("produtos/mostra?id={$produto->id}", $produto->nome ); ?></td>
             <td><?= $produto->preco; ?></td>
             <td><?= $produto->descricao; ?></td>
         </tr>

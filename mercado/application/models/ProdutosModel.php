@@ -20,4 +20,12 @@ class ProdutosModel extends CI_Model {
         $query = $this->db->get("produtos");
         return $query->result();
     }
+
+    public function busca($id)
+    {
+        return $this->db->get_where("produtos", array(
+            "id" => $id
+        ))->row_array();
+        
+    }
 }
