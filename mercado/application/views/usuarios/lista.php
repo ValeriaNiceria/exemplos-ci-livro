@@ -1,4 +1,10 @@
-<?php echo heading("Usuários", 1); ?>
+<?php 
+
+echo isset($aviso) ? "<div class='alert alert-success alert-heading'>" .$aviso. "</div>": '';
+
+echo heading("Usuários", 1); 
+?>
+
 <table class="table">
     <tr>
         <th>Nome</th>

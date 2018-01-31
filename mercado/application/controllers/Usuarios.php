@@ -39,9 +39,19 @@ class Usuarios extends CI_Controller {
             "email" => $this->input->post("email"),
             "senha" => md5($this->input->post("senha")) //senha criptografada
         );
+        
+        if ($this->UsuariosModel->salva($usuario)) 
+        {
+            //Redirecionando para lista de usuários
+            $this->dados['title'] = "Lista Usuários";
+            $this->dados['view'] = "usuarios/lista";
+            $this->dados['aviso'] = "Usuário cadastrado com sucesso";
 
-        $this->UsuariosModel->salva($usuario);
-        $this->load->view("usuarios/novo");
+            $usuarios = $this->UsuariosModel->buscaUsuarios();
+            $this->dados['usuarios'] = $usuarios;
+
+            $this->load->view("index", $this->dados);
+        }
     }
 
 }

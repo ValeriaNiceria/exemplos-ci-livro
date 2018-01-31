@@ -8,4 +8,10 @@ class ProdutosModel extends CI_Model {
         return $query->result();
     }
 
+    public function salva($produto)
+    {
+        $this->db->insert("produtos", $produto);
+        return true;
+    }
+
 }
