@@ -1,8 +1,11 @@
 <div class="container">
 <?php 
+echo isset($aviso_deslogado) ? "<div class='alert alert-info'>" .$aviso_deslogado. "</div>" : '';
+
 echo heading("Login", 1);
 
 echo isset($aviso_error) ? "<div class='alert alert-danger'>" .$aviso_error. "</div>" : '';
+
 
 echo form_open("mercado/autenticar");
 

@@ -12,11 +12,12 @@
     
     <div class="container">
        <?php if ($this->session->userdata("usuario_logado")) : ?> <!--Só vai aparecer o menu se o usuário estiver logado-->
-            <div class="menu">
-                <?php echo anchor("produtos/lista", "Lista Produtos"); ?>
-                <?php echo anchor("usuarios/lista", "Lista Usuários"); ?>
-                <?php echo anchor("produtos/formulario_cadastro", "Cadastro Produto"); ?>
-                <?php echo anchor("usuarios/formulario_cadastro", "Cadastro Usuário"); ?>
+            <div class="nav">
+                <?= anchor("produtos/lista", "Lista Produtos", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
+                <?= anchor("usuarios/lista", "Lista Usuários", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
+                <?= anchor("produtos/formulario_cadastro", "Cadastro Produto", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
+                <?= anchor("usuarios/formulario_cadastro", "Cadastro Usuário", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
+                <?= anchor("mercado/logout", "Logout", array("class" => "btn btn-danger mt-2 mx-2 mb-3")); ?>
             </div>
         <?php endif; ?>
 
