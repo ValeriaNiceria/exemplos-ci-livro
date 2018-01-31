@@ -18,7 +18,8 @@ echo form_input(array(
     "name" => "preco",
     "id" => "preco",
     "placeholder" => "Preço",
-    "class" => "form-control"
+    "class" => "form-control",
+    "type" => "number"
 ));
 
 echo form_label("Descrição", "descricao");

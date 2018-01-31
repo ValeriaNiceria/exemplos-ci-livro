@@ -38,10 +38,13 @@ class Produtos extends CI_Controller {
 
     public function novo()
     {
+        $usuariologado = $this->session->userdata("usuario_logado");
+
         $produto = array(
             "nome" => $this->input->post("nome"),
             "preco" => $this->input->post("preco"),
-            "descricao" => $this->input->post("descricao")
+            "descricao" => $this->input->post("descricao"),
+            "usuario_id" => $usuariologado["id"]
         );
 
         if ($this->ProdutosModel->salva($produto))
@@ -55,6 +58,19 @@ class Produtos extends CI_Controller {
 
             $this->load->view("index", $this->dados);
         }
+    }
+
+    public function meus_produtos()
+    {
+        $usuario = $this->session->userdata("usuario_logado");
+        $produtos = $this->ProdutosModel->meus_produtos($usuario["id"]);
+
+        $this->dados["produtos"] = $produtos;
+
+        $this->dados['title'] = "Meus Produtos";
+        $this->dados['view'] = "produtos/lista_meus";
+
+        $this->load->view("index", $this->dados);
     }
 
 }

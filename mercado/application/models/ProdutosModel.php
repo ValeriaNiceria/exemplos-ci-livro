@@ -14,4 +14,10 @@ class ProdutosModel extends CI_Model {
         return true;
     }
 
+    public function meus_produtos($id)
+    {
+        $this->db->where("usuario_id", $id);
+        $query = $this->db->get("produtos");
+        return $query->result();
+    }
 }
