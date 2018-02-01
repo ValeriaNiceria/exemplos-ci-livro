@@ -73,11 +73,10 @@ class Produtos extends CI_Controller {
         $this->load->view("index", $this->dados);
     }
 
-    public function mostra()
+    public function mostra($id)
     {
         $this->load->helper("typography");
 
-        $id = $this->input->get("id");
         $produto = $this->ProdutosModel->busca($id);
 
         $this->dados['produto'] = $produto;

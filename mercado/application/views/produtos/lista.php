@@ -14,8 +14,8 @@ echo heading('Produtos', 1);
       
     <?php foreach ($produtos as $produto) : ?>
     <tr>
-        <td><?= anchor("produtos/mostra?id={$produto->id}", $produto->nome); ?></td>
-        <td><?= $produto->descricao; ?></td>
+        <td><?= anchor("produtos/{$produto->id}", $produto->nome); ?></td>
+        <td><?= character_limiter($produto->descricao, 10); ?></td>
         <td><?= numeroEmReais($produto->preco); ?></td>
     </tr>
     <?php endforeach; ?>

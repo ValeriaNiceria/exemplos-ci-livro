@@ -8,9 +8,9 @@
     </tr>
     <?php foreach ($produtos as $produto) : ?>
         <tr>
-            <td><?= anchor("produtos/mostra?id={$produto->id}", $produto->nome ); ?></td>
+            <td><?= anchor("produtos/{$produto->id}", $produto->nome ); ?></td>
             <td><?= $produto->preco; ?></td>
-            <td><?= $produto->descricao; ?></td>
+            <td><?= character_limiter($produto->descricao, 10); ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
