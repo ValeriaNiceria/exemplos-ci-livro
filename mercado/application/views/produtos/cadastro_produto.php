@@ -2,6 +2,8 @@
 
 echo heading("Cadastro de Produto", 1);
 
+//echo validation_errors("<p class='alert alert-danger'>", "</p>");
+
 echo form_open("produtos/novo");
 
 echo form_label("Nome", "nome");
@@ -10,8 +12,10 @@ echo form_input(array(
     "id" => "nome",
     "maxlength" => "255",
     "placeholder" => "Nome",
-    "class" => "form-control"
+    "class" => "form-control",
+    "value" => set_value("nome", "")
 ));
+echo form_error("nome");
 
 echo form_label("Preço", "preco");
 echo form_input(array(
@@ -19,16 +23,20 @@ echo form_input(array(
     "id" => "preco",
     "placeholder" => "Preço",
     "class" => "form-control",
-    "type" => "number"
+    "type" => "number",
+    "value" => set_value("preco", "")
 ));
+echo form_error("preco");
 
 echo form_label("Descrição", "descricao");
 echo form_textarea(array(
     "name" => "descricao",
     "id" => "descricao",
     "placeholder" => "Descrição",
-    "class" => "form-control"
+    "class" => "form-control",
+    "value" => set_value("descricao", "")
 ));
+echo form_error("descricao");
 
 echo form_button(array(
     "content" => "Cadastrar",
