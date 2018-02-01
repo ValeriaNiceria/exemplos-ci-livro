@@ -34,21 +34,38 @@ class Usuarios extends CI_Controller {
 
     public function novo()
     {
-        $usuario = array(
-            "nome" => $this->input->post("nome"),
-            "email" => $this->input->post("email"),
-            "senha" => md5($this->input->post("senha")) //senha criptografada
-        );
-        
-        if ($this->UsuariosModel->salva($usuario)) 
-        {
-            //Redirecionando para lista de usuários
-            $this->dados['title'] = "Lista Usuários";
-            $this->dados['view'] = "usuarios/lista";
-            $this->dados['aviso'] = "Usuário cadastrado com sucesso";
+        $this->load->library("form_validation");
 
-            $usuarios = $this->UsuariosModel->buscaUsuarios();
-            $this->dados['usuarios'] = $usuarios;
+        $this->form_validation->set_rules("nome", "Nome", "trim|required|min_length[5]");
+        $this->form_validation->set_rules("email", "Email", "trim|required|valid_email");
+        $this->form_validation->set_rules("senha", "Senha", "trim|required|min_length[6]");
+
+        $this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
+
+        $sucesso = $this->form_validation->run();
+
+        if ($sucesso) {
+            $usuario = array(
+                "nome" => $this->input->post("nome"),
+                "email" => $this->input->post("email"),
+                "senha" => md5($this->input->post("senha")) //senha criptografada
+            );
+            
+            if ($this->UsuariosModel->salva($usuario)) 
+            {
+                //Redirecionando para lista de usuários
+                $this->dados['title'] = "Lista Usuários";
+                $this->dados['view'] = "usuarios/lista";
+                $this->dados['aviso'] = "Usuário cadastrado com sucesso";
+
+                $usuarios = $this->UsuariosModel->buscaUsuarios();
+                $this->dados['usuarios'] = $usuarios;
+
+                $this->load->view("index", $this->dados);
+            }
+        } else {
+            $this->dados['title'] = "Cadastro de usuários";
+            $this->dados['view'] = "usuarios/cadastro_usuario";
 
             $this->load->view("index", $this->dados);
         }

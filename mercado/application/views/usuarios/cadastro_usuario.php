@@ -10,8 +10,10 @@ echo form_input(array(
     "id" => "nome", 
     "placeholder" => "Nome",
     "maxlength" => "255",
-    "class" => "form-control"
+    "class" => "form-control",
+    "value" => set_value("nome", "")
 ));
+echo form_error("nome");
 
 echo form_label("Email", "email");
 echo form_input(array(
@@ -19,8 +21,10 @@ echo form_input(array(
     "id" => "email",
     "placeholder" => "Email",
     "maxlength" => "255",
-    "class" => "form-control"
+    "class" => "form-control",
+    "value" => set_value("email", "")
 ));
+echo form_error("email");
 
 echo form_label("Senha", "senha");
 echo form_password(array(
@@ -28,8 +32,10 @@ echo form_password(array(
     "id" => "senha",
     "placeholder" => "Senha",
     "maxlength" => "255",
-    "class" => "form-control"
+    "class" => "form-control",
+    "value" => set_value("senha", "")
 ));
+echo form_error("senha");
 
 echo form_button(array(
     "class" => "btn btn-primary float-right px-4 mt-2",
