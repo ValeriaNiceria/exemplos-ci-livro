@@ -1,0 +1,1 @@
+<?php echo isset($aviso) ? "<div class='alert alert-success'>" .$aviso. "</div>" : ''; ?>
