@@ -4,7 +4,9 @@ class ProdutosModel extends CI_Model {
 
     public function buscaProdutos()
     {
-        $query = $this->db->get("produtos");
+        $query = $this->db->get_where("produtos", array(
+            "vendido" => 0
+        ));
         return $query->result();
     }
 
@@ -17,7 +19,9 @@ class ProdutosModel extends CI_Model {
     public function meus_produtos($id)
     {
         $this->db->where("usuario_id", $id);
-        $query = $this->db->get("produtos");
+        $query = $this->db->get_where("produtos", array(
+            "vendido" => 0
+        ));
         return $query->result();
     }
 
