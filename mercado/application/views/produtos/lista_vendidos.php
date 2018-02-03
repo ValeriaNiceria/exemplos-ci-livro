@@ -10,7 +10,7 @@
         <tr>
             <td><?= anchor("produtos/{$vendido->produto_id}", $vendido->produto_id); ?></td>
             <td><?= anchor("usuarios/{$vendido->comprador_id}", $vendido->comprador_id); ?></td>
-            <td><?= $vendido->data_de_entrega; ?></td>
+            <td><?= traduz_data_para_exibir($vendido->data_de_entrega); ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

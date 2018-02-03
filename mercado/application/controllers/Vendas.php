@@ -10,6 +10,7 @@ class Vendas extends CI_Controller {
     {
         parent::__construct();
         $this->load->model("Vendas_model");
+        $this->load->helper("data");
     }
 
     public function nova()
