@@ -17,7 +17,7 @@ class Produtos extends CI_Controller {
     public function lista() 
     {
         //Informações - imprime na página
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
 
         $this->dados['title'] = "Lista de Produtos";
         $this->dados['view'] = "produtos/lista";

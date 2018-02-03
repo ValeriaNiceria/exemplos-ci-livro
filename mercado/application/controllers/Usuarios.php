@@ -71,4 +71,16 @@ class Usuarios extends CI_Controller {
         }
     }
 
+    public function mostra_comprador($id)
+    {
+        $comprador = $this->UsuariosModel->busca_comprador($id);
+
+        $this->dados['comprador'] = $comprador;
+
+        $this->dados['title'] = "Comprador: " . ucwords($comprador['nome']);
+        $this->dados['view'] = "usuarios/mostra_comprador";
+
+        $this->load->view("index", $this->dados);
+    }
+
 }

@@ -13,4 +13,11 @@ class Vendas_model extends CI_Model {
         ));
     }
 
+    public function busca()
+    {
+        $query = $this->db->get('vendas');
+        return $query->result();
+
+    }
+
 }

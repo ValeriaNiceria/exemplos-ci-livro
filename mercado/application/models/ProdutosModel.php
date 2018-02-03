@@ -30,6 +30,12 @@ class ProdutosModel extends CI_Model {
         return $this->db->get_where("produtos", array(
             "id" => $id
         ))->row_array();
-        
+    }
+
+    public function produto_vendido($id)
+    {
+        return $this->db->get_where("produtos", array(
+            "id" => $id
+        ))->row_array();
     }
 }

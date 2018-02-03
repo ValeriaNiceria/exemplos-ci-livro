@@ -6,11 +6,15 @@ class Vendas extends CI_Controller {
 
     public $dados = array();
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("Vendas_model");
+    }
+
     public function nova()
     {
         $usuario = $this->session->userdata("usuario_logado");
-
-        $this->load->model("Vendas_model");
 
         $venda = array(
             'produto_id' => $this->input->post("produto_id"),
@@ -23,6 +27,18 @@ class Vendas extends CI_Controller {
         $this->dados['aviso'] = "Pedido de compra efetuado com sucesso!";
         $this->dados['title'] = "Sistema Mercado";
         $this->dados['view'] = "produtos/nova";
+        $this->load->view("index", $this->dados);
+    }
+
+    public function lista()
+    {
+        $this->dados['title'] = "Produtos vendidos";
+        $this->dados['view'] = "produtos/lista_vendidos";
+
+        $vendidos = $this->Vendas_model->busca();
+
+        $this->dados['vendidos'] = $vendidos;
+
         $this->load->view("index", $this->dados);
     }
 
