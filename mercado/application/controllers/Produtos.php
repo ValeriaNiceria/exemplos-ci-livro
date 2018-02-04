@@ -30,50 +30,58 @@ class Produtos extends CI_Controller {
 
     public function formulario_cadastro()
     {
-        $this->dados['title'] = "Cadastro de Produto";
-        $this->dados['view'] = "produtos/cadastro_produto";
+        $logado = autoriza();
 
-        $this->load->view("index", $this->dados);
+        if ($logado) {
+            $this->dados['title'] = "Cadastro de Produto";
+            $this->dados['view'] = "produtos/cadastro_produto";
+    
+            $this->load->view("index", $this->dados);
+        }
     }
 
     public function novo()
     {
-        $this->load->library("form_validation");
+        $logado = autoriza();
 
-        $this->form_validation->set_rules("nome", "Nome", "trim|required|min_length[5]|callback_nao_tenha_a_palavra_melhor");
-        $this->form_validation->set_rules("preco", "Preço", "trim|required");
-        $this->form_validation->set_rules("descricao", "Descrição", "trim|required|min_length[10]");
+        if ($logado) {
+            $this->load->library("form_validation");
 
-        $this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
+            $this->form_validation->set_rules("nome", "Nome", "trim|required|min_length[5]|callback_nao_tenha_a_palavra_melhor");
+            $this->form_validation->set_rules("preco", "Preço", "trim|required");
+            $this->form_validation->set_rules("descricao", "Descrição", "trim|required|min_length[10]");
 
-        $sucesso = $this->form_validation->run();
+            $this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
 
-        if ($sucesso) {
-            $usuariologado = $this->session->userdata("usuario_logado");
+            $sucesso = $this->form_validation->run();
 
-            $produto = array(
-                "nome" => $this->input->post("nome"),
-                "preco" => $this->input->post("preco"),
-                "descricao" => $this->input->post("descricao"),
-                "usuario_id" => $usuariologado["id"]
-            );
+            if ($sucesso) {
+                $usuariologado = $this->session->userdata("usuario_logado");
 
-            if ($this->ProdutosModel->salva($produto))
-            {
-                $this->dados['title'] = "Lista Produtos";
-                $this->dados['view'] = "produtos/lista";
-                $this->dados['aviso'] = "Cadastro realizado com sucesso";
+                $produto = array(
+                    "nome" => $this->input->post("nome"),
+                    "preco" => $this->input->post("preco"),
+                    "descricao" => $this->input->post("descricao"),
+                    "usuario_id" => $usuariologado["id"]
+                );
 
-                $produtos = $this->ProdutosModel->buscaProdutos();
-                $this->dados['produtos'] = $produtos;
+                if ($this->ProdutosModel->salva($produto))
+                {
+                    $this->dados['title'] = "Lista Produtos";
+                    $this->dados['view'] = "produtos/lista";
+                    $this->dados['aviso'] = "Cadastro realizado com sucesso";
+
+                    $produtos = $this->ProdutosModel->buscaProdutos();
+                    $this->dados['produtos'] = $produtos;
+
+                    $this->load->view("index", $this->dados);
+                }
+            } else {
+                $this->dados['title'] = "Cadastro de Produto";
+                $this->dados['view'] = "produtos/cadastro_produto";
 
                 $this->load->view("index", $this->dados);
             }
-        } else {
-            $this->dados['title'] = "Cadastro de Produto";
-            $this->dados['view'] = "produtos/cadastro_produto";
-
-            $this->load->view("index", $this->dados);
         }
     }
 

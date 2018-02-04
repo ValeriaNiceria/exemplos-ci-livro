@@ -22,11 +22,4 @@ class UsuariosModel extends CI_Model {
         return $usuario;
 
     }
-
-    public function busca_comprador($id)
-    {
-        return $this->db->get_where("usuarios", array(
-            "id" => $id
-        ))->row_array();
-    }
 }
