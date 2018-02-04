@@ -1,15 +1,17 @@
-<?php echo heading("Produtos vendidos", 1); ?>
+<?php echo heading("Minhas vendas", 1); ?>
 
 <table class="table">
     <tr>
-        <th>ID Produto</th>
-        <th>ID Comprador</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Descrição</th>
         <th>Data de entrega</th>
     </tr>
-    <?php foreach ($vendidos as $vendido) : ?>
+    <?php foreach ($produtosVendidos as $vendido) : ?>
         <tr>
-            <td><?= anchor("produtos/{$vendido->produto_id}", $vendido->produto_id); ?></td>
-            <td><?= anchor("usuarios/{$vendido->comprador_id}", $vendido->comprador_id); ?></td>
+            <td><?= anchor("produtos/{$vendido->id}", html_escape(ucwords($vendido->nome))); ?></td>
+            <td><?= $vendido->preco; ?></td>
+            <td><?= character_limiter(html_escape($vendido->descricao), 10); ?></td>
             <td><?= traduz_data_para_exibir($vendido->data_de_entrega); ?></td>
         </tr>
     <?php endforeach; ?>

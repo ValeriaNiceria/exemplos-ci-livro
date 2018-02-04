@@ -5,7 +5,7 @@ class ProdutosModel extends CI_Model {
     public function buscaProdutos()
     {
         $query = $this->db->get_where("produtos", array(
-            "vendido" => 0
+            "vendido" => false
         ));
         return $query->result();
     }
@@ -19,9 +19,7 @@ class ProdutosModel extends CI_Model {
     public function meus_produtos($id)
     {
         $this->db->where("usuario_id", $id);
-        $query = $this->db->get_where("produtos", array(
-            "vendido" => 0
-        ));
+        $query = $this->db->get("produtos");
         return $query->result();
     }
 
@@ -32,10 +30,21 @@ class ProdutosModel extends CI_Model {
         ))->row_array();
     }
 
-    public function produto_vendido($id)
+    public function busca_vendidos($usuario) 
     {
-        return $this->db->get_where("produtos", array(
-            "id" => $id
-        ))->row_array();
+        $id = $usuario["id"];
+
+        $this->db->select("produtos.*, vendas.data_de_entrega");
+
+        $this->db->from("produtos");
+        $this->db->join("vendas", "vendas.produto_id = produtos.id");
+
+        $this->db->where(array(
+            "vendido" => true,
+            "usuario_id" => $id
+        ));
+        
+        return $this->db->get()->result();
     }
+
 }

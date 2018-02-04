@@ -17,7 +17,7 @@
                 <?= anchor("usuarios/lista", "Lista Usuários", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
                 <?= anchor("produtos/formulario_cadastro", "Novo Produto", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
                 <?= anchor("usuarios/formulario_cadastro", "Novo Usuário", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
-                <?= anchor("vendas/lista", "Produtos vendidos", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
+                <?= anchor("vendas/lista", "Minhas vendas", array("class" => "btn btn-info mt-2 mx-2 mb-3")); ?>
                 <?= anchor("mercado/logout", "Logout", array("class" => "btn btn-danger mt-2 mx-2 mb-3")); ?>
             </div>
         <?php endif; ?>

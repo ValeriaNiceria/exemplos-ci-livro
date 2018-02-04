@@ -12,12 +12,4 @@ class Vendas_model extends CI_Model {
             "id" => $venda["produto_id"]
         ));
     }
-
-    public function busca()
-    {
-        $query = $this->db->get('vendas');
-        return $query->result();
-
-    }
-
 }

@@ -10,6 +10,7 @@ class Vendas extends CI_Controller {
     {
         parent::__construct();
         $this->load->model("Vendas_model");
+        $this->load->model("ProdutosModel");
         $this->load->helper("data");
     }
 
@@ -36,9 +37,11 @@ class Vendas extends CI_Controller {
         $this->dados['title'] = "Produtos vendidos";
         $this->dados['view'] = "produtos/lista_vendidos";
 
-        $vendidos = $this->Vendas_model->busca();
+        $usuario = $this->session->userdata("usuario_logado");
 
-        $this->dados['vendidos'] = $vendidos;
+        $produtosVendidos = $this->ProdutosModel->busca_vendidos($usuario);
+
+        $this->dados['produtosVendidos'] = $produtosVendidos;
 
         $this->load->view("index", $this->dados);
     }
