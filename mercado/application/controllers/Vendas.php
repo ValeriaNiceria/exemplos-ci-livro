@@ -34,7 +34,7 @@ class Vendas extends CI_Controller {
             $config["protocol"] = "smtp";
             $config["smtp_host"] = "ssl://smtp.gmail.com";
             $config["smtp_user"] = "valerianiceria@gmail.com";
-            $config["smtp_pass"] = "VVNAD2018C";
+            $config["smtp_pass"] = "password";
             $config["charset"] = "utf-8";
             $config["mailtype"] = "html";
             $config["newline"] = "\r\n";
