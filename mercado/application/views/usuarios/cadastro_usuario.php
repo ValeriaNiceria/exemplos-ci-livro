@@ -43,8 +43,4 @@ echo form_button(array(
     "type" => "submit"
 ));
 
-echo anchor("mercado", "Cancelar", array(
-    "class" => "btn btn-info mt-2 mx-2 mb-3 float-right"
-));
-
 echo form_close();

@@ -31,10 +31,6 @@ echo form_button(array(
     "class" => "btn btn-primary float-right px-4 mt-2"
 ));
 
-echo anchor("usuarios/formulario_cadastro", "Novo usuário",array(
-    "class" => "btn btn-info mt-2 mx-2 mb-3 float-right"
-));
-
 echo form_close();
 
 ?>
