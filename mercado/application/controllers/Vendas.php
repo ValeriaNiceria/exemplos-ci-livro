@@ -9,7 +9,7 @@ class Vendas extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("Vendas_model", "ProdutosModel", "UsuariosModel");
+        $this->load->model(array("Vendas_model", "ProdutosModel", "UsuariosModel"));
         $this->load->helper("data");
     }
 

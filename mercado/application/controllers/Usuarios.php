@@ -13,17 +13,6 @@ class Usuarios extends CI_Controller {
         $this->load->model("UsuariosModel");
     }
 
-    public function lista() 
-    {
-        $this->dados['title'] = "Lista de Usuários";
-        $this->dados['view'] = "usuarios/lista";
-
-        $usuarios = $this->UsuariosModel->buscaUsuarios();
-        $this->dados['usuarios'] = $usuarios;
-
-        $this->load->view("index", $this->dados);
-    }
-
     public function formulario_cadastro() 
     {
         $this->dados['title'] = "Cadastro de usuários";
@@ -55,7 +44,7 @@ class Usuarios extends CI_Controller {
             {
                 //Redirecionando para lista de usuários
                 $this->dados['title'] = "Lista Usuários";
-                $this->dados['view'] = "usuarios/lista";
+                $this->dados['view'] = "login";
                 $this->dados['aviso'] = "Usuário cadastrado com sucesso";
 
                 $usuarios = $this->UsuariosModel->buscaUsuarios();

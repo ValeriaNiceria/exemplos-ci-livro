@@ -48,7 +48,7 @@ class Mercado extends CI_Controller {
     public function logout()
     {
         $this->session->unset_userdata("usuario_logado");
-        $this->dados['aviso_deslogado'] = "Deslogado com sucesso!";
+        $this->dados['aviso'] = "Deslogado com sucesso!";
         $this->dados['title'] = "Login";
         $this->dados['view'] = "login";
 

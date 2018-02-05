@@ -1,6 +1,6 @@
 <div class="container">
 <?php 
-echo isset($aviso_deslogado) ? "<div class='alert alert-info'>" .$aviso_deslogado. "</div>" : '';
+echo isset($aviso) ? "<div class='alert alert-info'>" .$aviso. "</div>" : '';
 
 echo heading("Login", 1);
 

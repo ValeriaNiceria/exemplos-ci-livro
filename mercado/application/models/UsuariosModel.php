@@ -8,10 +8,12 @@ class UsuariosModel extends CI_Model {
         return true;
     }
 
-    public function buscaUsuarios() 
+    public function buscaUsuario($id) 
     {
-        $query = $this->db->get("usuarios");
-        return $query->result();
+        $query = $this->db->get_where("usuarios", array(
+            'id' => $id
+        ));
+        return $query->row_array();
     }
 
     public function buscaPorEmailSenha($email, $senha)
