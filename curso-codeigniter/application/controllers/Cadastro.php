@@ -12,7 +12,7 @@ class Cadastro extends CI_Controller {
     public function index() {
         $data['view'] = 'cadastro.php';
         $data['title'] = 'Cadastro';
-        $this->load->view('site', $data);
+        $this->load->template('site', $data);
     }
 
     public function register() {
@@ -37,7 +37,7 @@ class Cadastro extends CI_Controller {
         
         $data['view'] = 'cadastro.php';
         $data['title'] = 'Cadastro';
-        $this->load->view('site', $data);
+        $this->load->template('site', $data);
 
     }
 

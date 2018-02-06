@@ -46,6 +46,6 @@ class Site extends CI_Controller {
 		//** Criar links da paginação ** 
 		$data['paginacao_filmes'] = $this->pagination->create_links(); 
 
-		$this->load->view('site', $data);
+		$this->load->template('site', $data);
 	}
 }

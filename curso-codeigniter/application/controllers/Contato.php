@@ -14,7 +14,7 @@ class Contato extends CI_Controller {
         $data['title'] = "Contato";
         $data['view'] = 'contato.php';
 
-        $this->load->view('site', $data);
+        $this->load->template('site', $data);
     }
 
     public function enviar()
@@ -63,6 +63,6 @@ class Contato extends CI_Controller {
         $data['title'] = 'Contato';
         $data['view'] = 'contato.php';
 
-        $this->load->view('site', $data);
+        $this->load->template('site', $data);
     }
 }

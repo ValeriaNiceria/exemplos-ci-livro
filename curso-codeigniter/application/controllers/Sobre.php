@@ -8,6 +8,6 @@ class Sobre extends CI_Controller {
         $data['title'] = "Sobre a empresa";
         $data['view'] = 'sobre.php';
 
-        $this->load->view('site', $data);
+        $this->load->template('site', $data);
     }
 }
