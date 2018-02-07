@@ -36,23 +36,44 @@ class Cadastro extends CI_Controller {
                 
                 $uploadFoto = $this->UploadFile('foto');
 
+                /*Faz resize da foto*/
+                $this->load->library("image_lib");
+
+                $config_resize['source_image'] = $_FILES['foto']['tmp_name'];
+                $config_resize['new_image'] = $uploadFoto['arquivo']['file_path'].'thumbs/'.$uploadFoto['arquivo']['file_name'];
+                $config_resize['image_library'] = 'gd2';
+                $config_resize['create_thumb'] = FALSE;
+                $config_resize['maintain_ratio'] = TRUE;
+                $config_resize['width'] = '200';
+                $config_resize['height'] = '150';
+
+                $this->image_lib->initialize($config_resize);
+
+                /*Verifica se ocorreu um erro no upload da foto*/
                 if ($uploadFoto['error']) {
                     $data['erro'] = $uploadFoto['message'];
                 } else {
-                    /* Faz o cadastro no banco */
-                    $this->load->model('Filmes');
+                    /*Verifica se foi feito o resize da foto*/
+                    if (!$this->image_lib->resize()) {
+                        unlink($uploadFoto['arquivo']['full_path']); //Deleta a foto caso ocorra um erro no resize
+                        $data['erro'] = $this->image_lib->display_errors();
+                    } else {
+                        /* Faz o cadastro no banco */
+                        $this->load->model('Filmes');
 
-                    $attributes = array(
-                        'filme_nome' => $nome,
-                        'filme_descricao' => $descricao,
-                        'filme_foto' => $uploadFoto['arquivo']['full_path']
-                    );
+                        $attributes = array(
+                            'filme_nome' => $nome,
+                            'filme_descricao' => $descricao,
+                            'filme_foto' => $uploadFoto['arquivo']['full_path'],
+                            'filme_thumb' => $uploadFoto['arquivo']['file_path'].'thumbs/'.$uploadFoto['arquivo']['file_name']
+                        );
 
-                   if ($this->Filmes->cadastrar_filme($attributes)) {
-                       $data['sucesso'] = 'Cadastro realizado com sucesso!';
-                   } else {
-                       $data['erro'] = 'Erro ao relizar o cadastro!'; 
-                   }
+                        if ($this->Filmes->cadastrar_filme($attributes)) {
+                            $data['sucesso'] = 'Cadastro realizado com sucesso!';
+                        } else {
+                            $data['erro'] = 'Erro ao relizar o cadastro!'; 
+                        }
+                    }
                 }
             }
         }
