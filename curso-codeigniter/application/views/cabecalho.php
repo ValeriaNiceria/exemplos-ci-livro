@@ -12,5 +12,4 @@
 		<?php echo anchor('./', 'Home'); ?>
 		<?php echo anchor('cadastro', 'Cadastro'); ?>
 		<?php echo anchor('contato', 'Contato'); ?>
-		<?php  echo anchor('sobre','Sobre'); ?>
 	</div>

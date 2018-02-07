@@ -1,22 +1,42 @@
 <?php
 
-echo heading('Formulário de contato', 1);
+echo heading('Contato', 1);
 
 echo form_open('contato/enviar'); //(controller/método)
 
-echo form_label('Nome:');
-echo form_input(array("name" => "nome"));
+echo form_label('Nome:', 'nome');
+echo form_input(array(
+    "name" => "nome",
+    "id" => "nome",
+    "placeholder" => "Nome"
+));
 
-echo form_label('Email:');
-echo form_input(array("name" => "email"));
+echo form_label('Email:', 'email');
+echo form_input(array(
+    "name" => "email",
+    "id" => "email",
+    "placeholder" => "E-mail"
+));
 
-echo form_label('Assunto:');
-echo form_input(array("name" => "assunto"));
+echo form_label('Assunto:', 'assunto');
+echo form_input(array(
+    "name" => "assunto",
+    "id" => "assunto",
+    "placeholder" => "Assunto"
+));
 
-echo form_label('Mensagem:');
-echo form_textarea(array("name" => "mensagem"));
+echo form_label('Mensagem:', 'mensagem');
+echo form_textarea(array(
+    "name" => "mensagem",
+    "id" => "mensagem",
+    "placeholder" => "Mensagem"
+));
 
-echo form_submit(array("value" => "Enviar"));
+echo form_button(array(
+    "content" => "Enviar",
+    "type" => "submit",
+    "class" => "btn"
+));
 
 echo form_close();
 

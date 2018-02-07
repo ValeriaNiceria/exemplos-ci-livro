@@ -10,23 +10,10 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
-		/*
-		$attributes = array(
-			'filme_nome' => 'Mad Max',
-			'filme_descricao' => 'Filme de ação'
-		);
-
-		$this->Filmes->atualizar_filme(5, $attributes);
-		*/
-		//$this->Filmes->cadastrar_filme($attributes);
-
-		//$this->Filmes->deletar_filme(2);
-
-
 		$por_pagina = 2;
 		$inicio = $this->uri->segment(2); //Está pegando o segundo campo da url
 
-		$data['title'] = "Bem vindo ao Curso CodeIgniter";
+		$data['title'] = "Filmes";
 		$data['view'] = 'home.php';
 
 		$data['filmes_encontrados'] = $this->Filmes->listar_filmes($por_pagina, $inicio);
