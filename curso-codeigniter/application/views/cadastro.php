@@ -21,7 +21,7 @@ echo form_textarea(array(
 );
 echo form_error("descricao");
 
-echo form_label("Anexo Foto:", "foto");
+echo form_label("Anexar foto:", "foto");
 echo form_upload(array(
     "name" => "foto",
     "id" => "foto"

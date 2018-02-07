@@ -39,13 +39,25 @@ class Cadastro extends CI_Controller {
                 if ($uploadFoto['error']) {
                     $data['erro'] = $uploadFoto['message'];
                 } else {
-                    $data['sucesso'] = "Foto anexada com sucesso!";
+                    /* Faz o cadastro no banco */
+                    $this->load->model('Filmes');
+
+                    $attributes = array(
+                        'filme_nome' => $nome,
+                        'filme_descricao' => $descricao,
+                        'filme_foto' => $uploadFoto['arquivo']['full_path']
+                    );
+
+                   if ($this->Filmes->cadastrar_filme($attributes)) {
+                       $data['sucesso'] = 'Cadastro realizado com sucesso!';
+                   } else {
+                       $data['erro'] = 'Erro ao relizar o cadastro!'; 
+                   }
                 }
             }
         }
-        
-        $data['view'] = 'cadastro.php';
-        $data['title'] = 'Cadastro';
+        $data['view'] = 'cadastro';
+        $data['title'] = 'Cadastro de Filme';
         $this->load->template('site', $data);
 
     }
@@ -74,6 +86,7 @@ class Cadastro extends CI_Controller {
             $data['message'] = $this->upload->display_errors();
         else :
             $data['error'] = false;
+            $data['arquivo'] = $this->upload->data();
         endif;
 
         return $data;    

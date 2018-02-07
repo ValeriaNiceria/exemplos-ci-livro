@@ -10,7 +10,7 @@
 }
 
 h1{
-    color: rgb(2, 34, 53);
+    color: rgb(0, 117, 196);
 }
 
 .lista_filmes_inicio{
@@ -32,6 +32,10 @@ h1{
     border-radius: 3px;
 }
 
+.menu a:hover {
+    background-color: rgb(3, 160, 233);
+}
+
 label {
     display: block;
     margin: 10px 0 0 0;
@@ -46,17 +50,17 @@ textarea{
 }
 
 .btn {
-    color: #000;
+    color: #fff;
     display: block;
     margin-top: 5px;
-    padding: 8px;
+    padding: 10px;
     border: none;
     border-radius: 3px;
-    background-color: rgb(0, 105, 153);
+    background-color: rgb(5, 125, 180);
 }
 .btn:hover {
-    background-color: rgb(4, 113, 163);
-    color: rgb(207, 207, 207);
+    background-color: rgb(5, 153, 221);
+    color: rgb(71, 71, 71);
 }
 
 .errors {
