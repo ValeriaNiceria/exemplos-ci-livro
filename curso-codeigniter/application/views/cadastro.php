@@ -10,6 +10,7 @@ echo form_input(array(
     "placeholder" => "Nome do Filme"
 ), set_value('nome', '')
 );
+echo form_error("nome");
 
 echo form_label("Descrição:", "descricao");
 echo form_textarea(array(
@@ -18,6 +19,7 @@ echo form_textarea(array(
     "placeholder" => "Descrição do Filme"
 ), set_value('descricao', '')
 );
+echo form_error("descricao");
 
 echo form_label("Anexo Foto:", "foto");
 echo form_upload(array(

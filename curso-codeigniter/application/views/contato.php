@@ -10,6 +10,7 @@ echo form_input(array(
     "id" => "nome",
     "placeholder" => "Nome"
 ));
+echo form_error("nome");
 
 echo form_label('Email:', 'email');
 echo form_input(array(
@@ -17,6 +18,7 @@ echo form_input(array(
     "id" => "email",
     "placeholder" => "E-mail"
 ));
+echo form_error("email");
 
 echo form_label('Assunto:', 'assunto');
 echo form_input(array(
@@ -24,6 +26,7 @@ echo form_input(array(
     "id" => "assunto",
     "placeholder" => "Assunto"
 ));
+echo form_error("assunto");
 
 echo form_label('Mensagem:', 'mensagem');
 echo form_textarea(array(
@@ -31,6 +34,7 @@ echo form_textarea(array(
     "id" => "mensagem",
     "placeholder" => "Mensagem"
 ));
+echo form_error("mensagem");
 
 echo form_button(array(
     "content" => "Enviar",
@@ -40,7 +44,7 @@ echo form_button(array(
 
 echo form_close();
 
-echo (isset($errors)) ? '<div class="errors">' . $errors . '</div>' : '';
+echo (isset($erro)) ? '<div class="errors">' . $erro . '</div>' : '';
 
 echo (isset($enviado)) ? 'Email enviado com sucesso!' : '';
 

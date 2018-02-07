@@ -40,9 +40,10 @@ class Contato extends CI_Controller {
 
             $this->form_validation->set_rules($config);
 
-            if (!$this->form_validation->run()) {
-                $data['errors'] = validation_errors();
-            } else {
+            $this->form_validation->set_error_delimiters("<p class='errors'>", "</p>"); //Mensagem de erro abaixo do campo
+
+            if ($this->form_validation->run()) {
+                
                 $this->load->library("email");
 
                 $config = $this->email->setConfiguration();

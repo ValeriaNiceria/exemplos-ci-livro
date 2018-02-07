@@ -28,11 +28,14 @@ class Cadastro extends CI_Controller {
             $this->form_validation->set_rules('nome', 'Nome', 'required');
             $this->form_validation->set_rules('descricao', 'Descrição', 'required');
 
+            /* Adiciona a mensagem de erro abaixo do campo*/
+            $this->form_validation->set_error_delimiters("<p class='errors'>", "</p>");
+
             /* Verifica se retornou algum erro ao validar os campos */
-            if ($this->form_validation->run() == FALSE) {
-                $data['erro'] = validation_errors();
-            } else {
+            if ($this->form_validation->run()) {
+                
                 $uploadFoto = $this->UploadFile('foto');
+
                 if ($uploadFoto['error']) {
                     $data['erro'] = $uploadFoto['message'];
                 } else {
@@ -72,7 +75,7 @@ class Cadastro extends CI_Controller {
         else :
             $data['error'] = false;
         endif;
-        
+
         return $data;    
     }
 
