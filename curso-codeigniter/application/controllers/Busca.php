@@ -32,7 +32,7 @@ class Busca extends CI_Controller {
             $config['total_rows'] = $this->Filmes->get_total_filmes_busca($filme_busca);
             $config['num_links'] = 5;
             $config['first_url'] = '1';
-            $config['uri_segment'] = 5;
+            $config['uri_segment'] = $inicio;
 
             //** Inicializar a paginação **
             $this->pagination->initialize($config);

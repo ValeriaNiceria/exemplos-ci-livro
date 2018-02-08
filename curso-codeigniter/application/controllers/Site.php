@@ -11,7 +11,7 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
-		$por_pagina = 6;
+		$por_pagina = 2;
 		$inicio = $this->uri->segment(2); //Está pegando o segundo campo da url
 
 		$data['title'] = "Filmes";

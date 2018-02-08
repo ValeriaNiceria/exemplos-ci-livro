@@ -25,8 +25,8 @@ class Cadastro extends CI_Controller {
             $descricao = $this->input->post("descricao");
 
             /* Verifica se os campos estão vazios */
-            $this->form_validation->set_rules('nome', 'Nome', 'required');
-            $this->form_validation->set_rules('descricao', 'Descrição', 'required');
+            $this->form_validation->set_rules('nome', 'Nome', 'trim|required|is_unique[filmes.filme_nome]');
+            $this->form_validation->set_rules('descricao', 'Descrição', 'trim|required');
 
             /* Adiciona a mensagem de erro abaixo do campo*/
             $this->form_validation->set_error_delimiters("<p class='errors'>", "</p>");
