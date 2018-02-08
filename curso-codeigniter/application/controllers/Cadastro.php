@@ -64,8 +64,8 @@ class Cadastro extends CI_Controller {
                         $attributes = array(
                             'filme_nome' => $nome,
                             'filme_descricao' => $descricao,
-                            'filme_foto' => $uploadFoto['arquivo']['full_path'],
-                            'filme_thumb' => $uploadFoto['arquivo']['file_path'].'thumbs/'.$uploadFoto['arquivo']['file_name']
+                            'filme_foto' => 'public/arquivos/'. $uploadFoto['arquivo']['file_name'],
+                            'filme_thumb' => 'public/arquivos/thumbs/'.$uploadFoto['arquivo']['file_name']
                         );
 
                         if ($this->Filmes->cadastrar_filme($attributes)) {
