@@ -1,17 +1,24 @@
-<?php echo heading('Filmes encontrados', 1); ?> <!-- Substitui o 'h(1..6)' -->
-
 <?php
 
+echo '<div class="fix"></div>';
+
+echo heading('Filmes encontrados', 1); //Substitui o 'h(1..6)'
+
+echo '<ul class="thumbnails">';
 foreach($filmes_encontrados as $filme) :
-    
-    echo '<div class="lista_filmes_inicio">';
-    echo ucwords(heading($filme->filme_nome, 3)); //ucwords->Primeira letra maiúscula ** heading->substitui o h3
-    echo img($filme->filme_thumb);
-    echo "<p>" . word_limiter($filme->filme_descricao, 20) . "</p>";
-    echo '</div>';
-
+echo '<li class="span4 lista_filmes_inicio">';
+echo '<div class="thumbnail">';
+echo img(array('class' => 'img-polaroid', 'src' => $filme->filme_thumb));
+echo ucwords(heading($filme->filme_nome, 3));
+echo '<p>' . word_limiter($filme->filme_descricao, 20) . '</p>';
+echo anchor('filme/descricao', 'ver mais', array('class'=>'btn btn-info btn-block')); 
+echo '</div>';
+echo '</li>';
 endforeach;
+echo '</ul>';
 
+echo '<div class="paginacao">';
 echo $paginacao_filmes;
+echo '</div>';
 
 ?>

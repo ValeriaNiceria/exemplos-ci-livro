@@ -1,4 +1,7 @@
 <?php
+
+echo '<div class="fix"></div>';
+
 echo heading("Cadastro de Filme", 1);
 
 echo form_open_multipart('cadastro/register');
@@ -7,18 +10,20 @@ echo form_label("Nome:", "nome");
 echo form_input(array(
     "name" => "nome",
     "id" => "nome",
-    "placeholder" => "Nome do Filme"
-), set_value('nome', '')
-);
+    "placeholder" => "Nome do Filme",
+    "class" => "input-xxlarge",
+    "value" => set_value("nome", "")
+));
 echo form_error("nome");
 
 echo form_label("Descrição:", "descricao");
 echo form_textarea(array(
     "name" => "descricao",
     "id" => "descricao",
-    "placeholder" => "Descrição do Filme"
-), set_value('descricao', '')
-);
+    "placeholder" => "Descrição do Filme",
+    "class" => "input-xxlarge",
+    "value" => set_value("nome", "")
+));
 echo form_error("descricao");
 
 echo form_label("Anexar foto:", "foto");
@@ -28,10 +33,12 @@ echo form_upload(array(
 ), set_value('foto', '')
 );
 
+echo '<div class="fix"></div>';
+
 echo form_button(array(
     "content" => "Cadastrar",
     "type" => "submit",
-    "class" => "btn"
+    'class' => 'btn btn-primary btn-large botao'
 ));
 
 echo form_close();

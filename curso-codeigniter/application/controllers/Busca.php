@@ -32,7 +32,7 @@ class Busca extends CI_Controller {
             $config['total_rows'] = $this->Filmes->get_total_filmes_busca($filme_busca);
             $config['num_links'] = 5;
             $config['first_url'] = '1';
-            $config['uri_segment'] = $inicio;
+            $config['uri_segment'] = 5;
 
             //** Inicializar a paginação **
             $this->pagination->initialize($config);
@@ -41,6 +41,7 @@ class Busca extends CI_Controller {
 
         } else {
             //Se não clicou no form mandar para a página inicial
+            redirect(site_url());
         }
 
 

@@ -1,24 +1,20 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
 #container{
     width: 800px;
     margin: 0 auto;
-}
-
-h1{
-    color: rgb(0, 117, 196);
-    text-shadow: 1px 1px 9px rgb(109, 109, 109);
+    font-family: 'Alef', sans-serif;
 }
 
 .lista_filmes_inicio{
-    background-color: #efefef;
-    padding: 3px;
-    border: solid 1px #ccc;
-    margin-bottom: 10px;
+    background-color: #fcfbfb;
+    background:linear-gradient(#fcfbfb, #dee7f1);
+    padding: 2px;
+    border: solid 1px linear-gradient(#efefef, #9ec5f8);
+    margin-right: 50px;
 }
 
 .menu {
@@ -27,45 +23,24 @@ h1{
 
 .menu a {
     padding: 10px;
-    color: #fff;
+    color: rgb(10, 10, 10);
     text-decoration: none;
-    background-color: rgb(5, 125, 180);
-    border-radius: 3px;
+    font-size: 15px;
 }
 
 .menu a:hover {
     background-color: rgb(3, 160, 233);
-}
-
-label {
-    display: block;
-    margin: 10px 0 0 0;
-}
-
-input[type=text],
-textarea{
-    width: 61%;
-    border: 1px solid #333;
-    padding: 3px;
-    border-radius: 5px;
-}
-
-.btn {
-    color: #fff;
-    display: block;
-    margin-top: 5px;
-    padding: 10px;
-    border: none;
     border-radius: 3px;
-    background-color: rgb(5, 125, 180);
+    text-decoration: none;
 }
-.btn:hover {
-    background-color: rgb(5, 153, 221);
-    color: rgb(71, 71, 71);
+
+.botao {
+    display: block;
+    margin: 15px 0;
 }
 
 .errors {
-    width: 60%;
+    width: 55%;
     color: rgb(34, 32, 32);
     background-color: rgb(231, 127, 127);
     border-radius: 5px;
@@ -74,7 +49,7 @@ textarea{
 }
 
 .success {
-    width: 60%;
+    width: 55%;
     color: rgb(20, 20, 20);
     background-color: rgb(67, 155, 79);
     border-radius: 5px;
@@ -86,4 +61,17 @@ textarea{
     width: 40%;
     display: block;
     float: right;
+}
+
+.fix {
+    clear: both;
+}
+
+.paginacao a{
+    background-color: #efefef;
+    color: #000;
+    margin-right: 8px;
+    padding: 8px;
+    font-size: 16px;
+    border: solid 1px #ccc;
 }

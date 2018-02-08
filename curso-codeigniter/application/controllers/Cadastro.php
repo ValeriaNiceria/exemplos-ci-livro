@@ -36,23 +36,23 @@ class Cadastro extends CI_Controller {
                 
                 $uploadFoto = $this->UploadFile('foto');
 
-                /*Faz resize da foto*/
-                $this->load->library("image_lib");
-
-                $config_resize['source_image'] = $_FILES['foto']['tmp_name'];
-                $config_resize['new_image'] = $uploadFoto['arquivo']['file_path'].'thumbs/'.$uploadFoto['arquivo']['file_name'];
-                $config_resize['image_library'] = 'gd2';
-                $config_resize['create_thumb'] = FALSE;
-                $config_resize['maintain_ratio'] = TRUE;
-                $config_resize['width'] = '200';
-                $config_resize['height'] = '150';
-
-                $this->image_lib->initialize($config_resize);
-
                 /*Verifica se ocorreu um erro no upload da foto*/
                 if ($uploadFoto['error']) {
                     $data['erro'] = $uploadFoto['message'];
                 } else {
+                    /*Faz resize da foto*/
+                    $this->load->library("image_lib");
+
+                    $config_resize['source_image'] = $_FILES['foto']['tmp_name'];
+                    $config_resize['new_image'] = $uploadFoto['arquivo']['file_path'].'thumbs/'.$uploadFoto['arquivo']['file_name'];
+                    $config_resize['image_library'] = 'gd2';
+                    $config_resize['create_thumb'] = FALSE;
+                    $config_resize['maintain_ratio'] = TRUE;
+                    $config_resize['width'] = '200';
+                    $config_resize['height'] = '150';
+
+                    $this->image_lib->initialize($config_resize);
+
                     /*Verifica se foi feito o resize da foto*/
                     if (!$this->image_lib->resize()) {
                         unlink($uploadFoto['arquivo']['full_path']); //Deleta a foto caso ocorra um erro no resize
