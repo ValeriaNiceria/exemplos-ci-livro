@@ -81,3 +81,9 @@ textarea{
     padding: 10px;
     margin-top: 10px;
 }
+
+.busca {
+    width: 40%;
+    display: block;
+    float: right;
+}

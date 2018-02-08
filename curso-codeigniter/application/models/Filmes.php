@@ -38,4 +38,16 @@ class Filmes extends CI_Model {
         $query = $this->db->get('filmes');
         return $query->num_rows();
     }
+
+    public function buscar_filmes($filme_busca, $por_pagina, $inicio) {
+        $this->db->like('filme_nome', $filme_busca)->limit($por_pagina, $inicio);
+        return $this->db->get('filmes')->result();
+    }
+
+    public function get_total_filmes_busca($filme_busca) {
+        $this->db->like('filme_nome', $filme_busca);
+        $query = $this->db->get('filmes');
+        return $query->num_rows();
+
+    }
 }

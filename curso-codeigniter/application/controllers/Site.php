@@ -6,7 +6,7 @@ class Site extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Filmes');
-		$this->load->helper('text');
+		$this->load->helper(array('text', 'form'));
 	}
 
 	public function index()
