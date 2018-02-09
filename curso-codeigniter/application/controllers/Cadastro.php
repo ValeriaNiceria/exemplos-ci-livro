@@ -67,11 +67,12 @@ class Cadastro extends CI_Controller {
                             'filme_thumb' => 'public/arquivos/thumbs/'.$uploadFoto['arquivo']['file_name']
                         );
 
-                        if ($this->Filmes->cadastrar_filme($attributes)) {
-                            $data['sucesso'] = 'Cadastro realizado com sucesso!';
-                        } else {
-                            $data['erro'] = 'Erro ao relizar o cadastro!'; 
+                        $tabela = 'filmes'; //tabela do banco de dados
+
+                        if ($this->Filmes->create($tabela, $attributes)) {
+                            redirect(site_url());
                         }
+
                     }
                 }
             }

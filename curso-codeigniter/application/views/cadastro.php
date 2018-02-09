@@ -45,4 +45,3 @@ echo form_close();
 
 
 echo (isset($erro)) ? '<div class="errors">' .$erro. '</div>' : '' ;
-echo (isset($sucesso)) ? '<div class="success">'.$sucesso. '</div>' : '';

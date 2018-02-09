@@ -20,22 +20,6 @@ class Filmes extends MY_Model {
     }
     */
 
-    public function cadastrar_filme($attributes) {
-        //$sql = "INSERT INTO filmes () VALUES ()";
-        $this->db->insert('filmes', $attributes);
-        return true;
-    }
-
-    public function atualizar_filme($id, $attributes) {
-        $this->db->where('id', $id);
-        $this->db->update('filmes', $attributes);
-    }
-
-    public function deletar_filme($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('filmes');
-    }
-
     public function buscar_filmes($filme_busca, $por_pagina, $inicio) {
         $this->db->like('filme_nome', $filme_busca)->limit($por_pagina, $inicio);
         return $this->db->get('filmes')->result();

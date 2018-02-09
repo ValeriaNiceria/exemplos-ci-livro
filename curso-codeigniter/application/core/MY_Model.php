@@ -39,13 +39,34 @@ class MY_Model extends CI_Model {
         return $query->row_array();
     }
 
-    public function update()
+    public function update($tabela, $where, $attributes)
     {
-
+        if (!is_array($where)) {
+            trigger_error('O parametro passado no método ' .__FUNCTION__. ' precisa ser um array.');
+            die();
+        }
+        $this->db->where($where[0], $where[1]);
+        $this->db->update($tabela, $attributes);
     }
 
-    public function delete()
+    public function delete($tabela, $where)
     {
+        if (!is_array($where)) {
+            trigger_error('O parametro passado no método '.__FUNCTION__. ' precisa ser um array.');
+            die();
+        }
+        $this->db->where($where[0], $where[1]);
+        $this->db->delete($tabela);
+    }
 
+    public function create($tabela, $attributes)
+    {
+        if (!is_array($attributes)) {
+            trigger_error('O parametro passado no método '.__FUNCTION__. ' precisa ser um array.');
+            die();
+        }elseif ($this->db->insert($tabela, $attributes)) {
+            return true;
+        }
+        return false;
     }
 }
