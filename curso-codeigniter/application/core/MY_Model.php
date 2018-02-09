@@ -28,9 +28,15 @@ class MY_Model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function findById()
+    public function findById($tabela, $where)
     {
-
+        if (!is_array($where)) {
+            trigger_error('O parametro passado no método ' . __FUNCTION__ . ' precisa ser um array. ');
+            die();
+        }
+        $this->db->where($where[0], $where[1]);
+        $query = $this->db->get($tabela);
+        return $query->row_array();
     }
 
     public function update()

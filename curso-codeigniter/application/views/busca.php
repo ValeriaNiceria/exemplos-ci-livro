@@ -11,7 +11,7 @@ echo '<div class="thumbnail">';
 echo img(array('class' => 'img-polaroid', 'src' => $filme->filme_thumb));
 echo ucwords(heading($filme->filme_nome, 3));
 echo '<p>' . word_limiter($filme->filme_descricao, 20) . '</p>';
-echo anchor('filme/descricao', 'ver mais', array('class'=>'btn btn-info btn-block')); 
+echo anchor('filme/detalhes/'.$filme->id, 'ver mais', array('class'=>'btn btn-info btn-block')); 
 echo '</div>';
 echo '</li>';
 endforeach;
