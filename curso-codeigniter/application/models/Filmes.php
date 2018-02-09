@@ -1,11 +1,12 @@
 <?php
 
-class Filmes extends CI_Model {
+class Filmes extends MY_Model {
 
     function __construct() {
         parent:: __construct();
     }
 
+    /*
     public function listar_filmes($por_pagina, $inicio) {
         //$sql = "SELECT * FROM filmes";
         //$this->db->select('filme_nome', 'filme_preco');
@@ -17,6 +18,7 @@ class Filmes extends CI_Model {
         //return $query->row(); //Retorna somente um valor
         return $query->result();
     }
+    */
 
     public function cadastrar_filme($attributes) {
         //$sql = "INSERT INTO filmes () VALUES ()";
@@ -32,11 +34,6 @@ class Filmes extends CI_Model {
     public function deletar_filme($id) {
         $this->db->where('id', $id);
         $this->db->delete('filmes');
-    }
-
-    public function get_total_filmes() {
-        $query = $this->db->get('filmes');
-        return $query->num_rows();
     }
 
     public function buscar_filmes($filme_busca, $por_pagina, $inicio) {

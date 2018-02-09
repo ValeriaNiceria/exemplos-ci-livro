@@ -6,7 +6,7 @@ class Contato extends CI_Controller {
     function __construct() 
     {
         parent::__construct();
-        $this->load->helper('form');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -20,7 +20,6 @@ class Contato extends CI_Controller {
     public function enviar()
     {
         if ($_POST) :
-            $this->load->library('form_validation');
 
             //$this->form_validation->set_rules("nome", "Nome", "trim|required");
             //$this->form_validation->set_rules("email", "Email", "trim|required|valid_email");

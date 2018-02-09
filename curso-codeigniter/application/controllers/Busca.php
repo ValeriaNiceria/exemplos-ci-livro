@@ -7,7 +7,7 @@ class Busca extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("Filmes");
-        $this->load->helper(array("form", "text"));
+        $this->load->helper(array("text"));
     }
 
     public function filme() {
@@ -18,7 +18,7 @@ class Busca extends CI_Controller {
         $por_pagina = 1;
         $inicio = ($this->uri->segment(5)) ? $this->uri->segment(5) : 0;
 
-        if ($_GET || $this->uri->segment(4)) {
+        if ($_GET || $this->uri->segment(5)) {
             $filme_busca = ($this->input->get("busca")) ? $this->input->get("busca") : $this->uri->segment(3);
             
             $filmes_encontrados = $this->Filmes->buscar_filmes($filme_busca, $por_pagina, $inicio);

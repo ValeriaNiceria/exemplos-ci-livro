@@ -6,25 +6,26 @@ class Site extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Filmes');
-		$this->load->helper(array('text', 'form'));
+		$this->load->helper(array('text'));
 	}
 
 	public function index()
 	{
 		$por_pagina = 2;
 		$inicio = $this->uri->segment(2); //Está pegando o segundo campo da url
+		$tabela = 'filmes'; //Tabela no banco
 
 		$data['title'] = "Filmes";
 		$data['view'] = 'home.php';
 
-		$data['filmes_encontrados'] = $this->Filmes->listar_filmes($por_pagina, $inicio);
+		$data['filmes_encontrados'] = $this->Filmes->findPagination($tabela, $por_pagina, $inicio);
 
 		// ** Dados para paginação ** 
 		$this->load->library('pagination');
 		
 		$config['base_url'] = base_url() . 'page/';
 		$config['per_page'] = $por_pagina; 
-		$config['total_rows'] = $this->Filmes->get_total_filmes();
+		$config['total_rows'] = $this->Filmes->num_rows($tabela);
 		$config['num_links'] = 5;
 		$config['first_url'] = '1';
 		$config['uri_segment'] = 2;
