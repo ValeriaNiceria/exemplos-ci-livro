@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['page/(:num)'] = 'site/index/$1';
 $route['page'] = 'site';
+
+$route['login'] = 'admin/login';
+$route['admin'] = 'admin/login';

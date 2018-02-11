@@ -22,7 +22,7 @@ echo form_textarea(array(
     "id" => "descricao",
     "placeholder" => "Descrição do Filme",
     "class" => "input-xxlarge",
-    "value" => set_value("nome", "")
+    "value" => set_value("descricao", "")
 ));
 echo form_error("descricao");
 

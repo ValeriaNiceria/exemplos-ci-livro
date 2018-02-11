@@ -39,6 +39,15 @@
     margin: 15px 0;
 }
 
+.btn-logar {
+    display: block;
+    margin: 0 10px;
+}
+.btn-novo {
+    display: block;
+    margin-left: 330px;
+}
+
 .errors {
     width: 55%;
     color: rgb(34, 32, 32);
