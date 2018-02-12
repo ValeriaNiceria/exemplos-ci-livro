@@ -6,7 +6,7 @@ class Filme extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Filmes');
+        $this->load->model('Filmes_Model');
         ini_set('display_errors', E_ALL); //mensagem de erro
     }
 
@@ -15,7 +15,7 @@ class Filme extends CI_Controller {
         $id = $this->uri->segment(3);
         $where = ['id', $id]; 
 
-        $data['filme_encontrado'] = $this->Filmes->findById($tabela, $where);
+        $data['filme_encontrado'] = $this->Filmes_Model->findById($tabela, $where);
 
         $data['title'] = 'Detalhes ' . $data['filme_encontrado']['filme_nome'];
         $data['view'] = "detalhes";

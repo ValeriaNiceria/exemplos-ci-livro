@@ -14,14 +14,15 @@
 <?php
 echo heading('Login', 1);
 
-echo form_open();
+echo form_open('admin/login');
 
 echo form_label('E-mail:', 'email');
 echo form_input(array(
     'name' => 'email',
     'id' => 'email',
     'placeholder' => 'E-mail',
-    'class' => 'input-xxlarge'
+    'class' => 'input-xxlarge',
+    'value' => set_value('email', '')
 ));
 
 echo form_label('Senha:', 'senha');
@@ -29,12 +30,13 @@ echo form_password(array(
     'name' => 'senha',
     'id' => 'senha',
     'placeholder' => 'Senha',
-    'class' => 'input-xxlarge'
+    'class' => 'input-xxlarge',
+    'value' => set_value('senha', '')
 ));
 
 echo '<div class="fix"></div>';
 
-echo anchor('admin/usuario/cadastro', 'Novo Usuário', array(
+echo anchor('admin/usuario', 'Novo Usuário', array(
     'class' => 'btn btn-large disabled btn-novo'
 ));
 

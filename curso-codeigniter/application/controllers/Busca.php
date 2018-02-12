@@ -6,7 +6,7 @@ class Busca extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model("Filmes");
+        $this->load->model("Filmes_Model");
         $this->load->helper(array("text"));
     }
 
@@ -21,7 +21,7 @@ class Busca extends CI_Controller {
         if ($_GET || $this->uri->segment(5)) {
             $filme_busca = ($this->input->get("busca")) ? $this->input->get("busca") : $this->uri->segment(3);
             
-            $filmes_encontrados = $this->Filmes->buscar_filmes($filme_busca, $por_pagina, $inicio);
+            $filmes_encontrados = $this->Filmes_Model->buscar_filmes($filme_busca, $por_pagina, $inicio);
             $data['filmes_encontrados'] = $filmes_encontrados;
 
             // ** Dados para paginação ** 

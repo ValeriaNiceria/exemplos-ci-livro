@@ -1,6 +1,6 @@
 <?php
 
-class Filmes extends MY_Model {
+class Filmes_Model extends MY_Model {
 
     function __construct() {
         parent:: __construct();

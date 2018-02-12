@@ -15,31 +15,37 @@
 
 echo heading('Cadastro de Usuário', 1);
 
-echo form_open();
+echo form_open('admin/usuario');
 
 echo form_label('Nome:', 'nome');
 echo form_input(array(
     'name' => 'nome',
     'id' => 'nome',
     'placeholder' => 'Nome Usuário',
-    'class' => 'input-xxlarge'
+    'class' => 'input-xxlarge',
+    'value' => set_value('nome', '')
 ));
+echo form_error('nome');
 
 echo form_label('E-mail:', 'email');
 echo form_input(array(
     'name' => 'email',
     'id' => 'email',
     'placeholder' => 'E-mail',
-    'class' => 'input-xxlarge'
+    'class' => 'input-xxlarge',
+    'value' => set_value('email', '')
 ));
+echo form_error('email');
 
 echo form_label('Senha:', 'senha');
 echo form_password(array(
     'name' => 'senha',
     'id' => 'senha',
     'placeholder' => 'Senha',
-    'class' => 'input-xxlarge'
+    'class' => 'input-xxlarge',
+    'value' => set_value('senha', '')
 )); 
+echo form_error('senha');
 
 echo '<div class="fix"></div>';
 
@@ -53,6 +59,10 @@ echo form_button(array(
     'class' => 'btn btn-large btn-primary btn-logar'
 ));
 echo form_close();
+
+echo isset($message_success) ? '<div class="success">' .$message_success. '</div>' : ''; 
+echo isset($message_erro) ? '<div class="errors">' .$message_erro. '</div>' : '';
+
 
 ?>
 

@@ -58,7 +58,7 @@ class Cadastro extends CI_Controller {
                         $data['erro'] = $this->image_lib->display_errors();
                     } else {
                         /* Faz o cadastro no banco */
-                        $this->load->model('Filmes');
+                        $this->load->model('Filmes_Model');
 
                         $attributes = array(
                             'filme_nome' => $nome,
@@ -69,7 +69,7 @@ class Cadastro extends CI_Controller {
 
                         $tabela = 'filmes'; //tabela do banco de dados
 
-                        if ($this->Filmes->create($tabela, $attributes)) {
+                        if ($this->Filmes_Model->create($tabela, $attributes)) {
                             redirect(site_url());
                         }
 
