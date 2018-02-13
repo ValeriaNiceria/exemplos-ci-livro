@@ -29,7 +29,7 @@ class Busca extends CI_Controller {
             
             $config['base_url'] = base_url('busca/filme/') . '/' . $filme_busca . '/page/';
             $config['per_page'] = $por_pagina; 
-            $config['total_rows'] = $this->Filmes->get_total_filmes_busca($filme_busca);
+            $config['total_rows'] = $this->Filmes_Model->get_total_filmes_busca($filme_busca);
             $config['num_links'] = 5;
             $config['first_url'] = '1';
             $config['uri_segment'] = 5;

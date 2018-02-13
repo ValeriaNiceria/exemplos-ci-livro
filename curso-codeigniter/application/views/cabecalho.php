@@ -31,3 +31,13 @@
 		<?php echo anchor('cadastro', 'Cadastro'); ?>
 		<?php echo anchor('contato', 'Contato'); ?>
 	</div>
+
+	<?php
+		if ($this->session->userdata('logado')) {
+			echo '<div class="logout">';
+			echo anchor('admin/logout', 'Logout');
+			echo '</div>';
+		}
+	?>
+
+	

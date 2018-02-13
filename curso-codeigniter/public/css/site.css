@@ -87,3 +87,21 @@
 .detalhe {
     width: 70%;
 }
+
+.logout {
+    margin: 10px 0 10px 0;
+}
+
+.logout a {
+    background-color: #A52A2A;
+    color: #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.logout a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct ');
 
-class Painel extends CI_Controller {
+class Painel extends MY_Controller {
 
 	public function index() {
 		$data['title'] = "Painel de Acesso";
