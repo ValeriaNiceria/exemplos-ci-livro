@@ -12,7 +12,7 @@ class Contato extends CI_Controller {
     public function index()
     {
         $data['title'] = "Contato";
-        $data['view'] = 'contato.php';
+        $data['view'] = 'contato';
 
         $this->load->template('site', $data);
     }
