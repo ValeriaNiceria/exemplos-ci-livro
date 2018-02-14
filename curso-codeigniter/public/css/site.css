@@ -96,9 +96,10 @@
     background-color: #A52A2A;
     color: #ccc;
     border-radius: 6px;
-    padding: 6px;
+    padding: 5px;
     text-decoration: none;
     font-size: 15px;
+    margin-left: 5px;
 }
 
 .logout a:hover {

@@ -20,12 +20,17 @@ class Cadastro extends  MY_Controller {
         if ($_POST) {
 
             /* Pega dados do form e colocar em variáveis */
+            $quantidade = $this->input->post("qtd");
             $nome = $this->input->post("nome");
             $descricao = $this->input->post("descricao");
+            $preco = $this->input->post("preco");
+            $vendedor_id = $this->session->userdata("id_admin");
 
             /* Verifica se os campos estão vazios */
+            $this->form_validation->set_rules('qtd', 'Quantidade', 'trim|required');
             $this->form_validation->set_rules('nome', 'Nome', 'trim|required|is_unique[filmes.filme_nome]');
             $this->form_validation->set_rules('descricao', 'Descrição', 'trim|required');
+            $this->form_validation->set_rules('preco', 'Preço', 'trim|required');
 
             /* Adiciona a mensagem de erro abaixo do campo*/
             $this->form_validation->set_error_delimiters("<p class='errors'>", "</p>");
@@ -60,11 +65,15 @@ class Cadastro extends  MY_Controller {
                         /* Faz o cadastro no banco */
                         $this->load->model('Filmes_Model');
 
+
                         $attributes = array(
+                            'filme_quantidade' => $quantidade,
                             'filme_nome' => $nome,
                             'filme_descricao' => $descricao,
+                            'filme_preco' => $preco,
                             'filme_foto' => 'public/arquivos/'. $uploadFoto['arquivo']['file_name'],
-                            'filme_thumb' => 'public/arquivos/thumbs/'.$uploadFoto['arquivo']['file_name']
+                            'filme_thumb' => 'public/arquivos/thumbs/'.$uploadFoto['arquivo']['file_name'],
+                            'vendedor_id' => $vendedor_id
                         );
 
                         $tabela = 'filmes'; //tabela do banco de dados

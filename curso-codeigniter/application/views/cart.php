@@ -1,6 +1,8 @@
+<h2>Carrinho de compras</h2>
+
 <?php echo form_open(); ?>
 
-<table cellpadding="6" cellspacing="1" style="width:100%" border="0">
+<table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table ">
 
 <tr>
         <th>Quatidade</th>

@@ -61,3 +61,5 @@ echo (isset($erro)) ? '<div class="errors">' . $erro . '</div>' : '';
 
 echo (isset($enviado)) ? 'Email enviado com sucesso!' : '';
 
+
+?>

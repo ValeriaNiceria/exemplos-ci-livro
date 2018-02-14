@@ -47,7 +47,7 @@ echo form_submit(array(
 
 echo form_close();
 
-if ($erro) {
+if (isset($erro) AND $erro) {
     echo '<div class="errors">' .$erro. '</div>';
 }
 

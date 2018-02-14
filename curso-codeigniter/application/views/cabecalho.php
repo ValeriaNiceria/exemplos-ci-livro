@@ -34,7 +34,11 @@
 
 	<?php
 		if ($this->session->userdata('logado')) {
+
+			$usuario = $this->session->userdata('nome_admin');
+
 			echo '<div class="logout">';
+			echo '<strong>' .$usuario.  '</strong>';
 			echo anchor('admin/logout', 'Logout');
 			echo '</div>';
 		}

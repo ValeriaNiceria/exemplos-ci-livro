@@ -9,14 +9,24 @@ class Cart extends CI_Controller {
 	public function index() {
 
 		$this->load->library('cart');
-		
+		$this->load->model('Filmes_Model');
+
 		if ($_POST) {
 
+			/*Dados para inserir o produto no carrinho*/
+			$id = $this->input->post('id');
+			$qtd = $this->input->post('qtd');
+
+			$tabela = 'filmes';
+			$where = ['id', $id];
+
+			$dados_carrinho = $this->Filmes_Model->findById($tabela, $where);
+
 			$data = array(
-		        'id'      => '1',
-		        'qty'     => $this->input->post('qtd'),
-		        'price'   => '39.95',
-		        'name'    => 'Filme test'
+		        'id'      => $id,
+		        'qty'     => $qtd,
+		        'price'   => $dados_carrinho['filme_preco'],
+		        'name'    => $dados_carrinho['filme_nome']
 			);
 
 			$this->cart->insert($data);

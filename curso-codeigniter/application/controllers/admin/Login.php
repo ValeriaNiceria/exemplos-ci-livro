@@ -28,10 +28,13 @@ class Login extends CI_Controller {
 
                 $dadosAdmin = array(
                     'logado' => TRUE,
-                    'nome_admin' => $dadosLogin->usuario_nome
+                    'id_admin' => $dadosLogin->id, 
+                    'nome_admin' => $dadosLogin->usuario_nome,
+                    'email_admin' => $dadosLogin->usuario_email
                 );
 
                 $this->session->set_userdata($dadosAdmin);
+
                 redirect('admin/painel');
 
             } else {
