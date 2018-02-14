@@ -18,7 +18,8 @@ echo form_input(array(
 	'type' => 'number',
 	'class' => 'input-medium',
 	'placeholder' => 'Quantidade',
-	'min' => '1'
+	'min' => '1',
+	'value' => '1'
 ));
 echo form_button(array(
 	'content' => 'Adicionar',

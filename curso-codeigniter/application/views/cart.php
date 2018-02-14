@@ -1,6 +1,6 @@
 <h2>Carrinho de compras</h2>
 
-<?php echo form_open(); ?>
+<?php echo form_open('cart/update'); ?>
 
 <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table ">
 
