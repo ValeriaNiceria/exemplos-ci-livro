@@ -4,11 +4,11 @@ class Cart extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('cart');
 	}
 
 	public function index() {
 
-		$this->load->library('cart');
 		$this->load->model('Filmes_Model');
 
 		if ($_POST) {
@@ -59,9 +59,14 @@ class Cart extends CI_Controller {
 
 	public function update() {
 
-		$this->load->library('cart');
-
 		$this->cart->update($_POST);
+		redirect('cart');
+	}
+
+	public function delete() {
+
+		$dados_update = ['rowid' => $this->uri->segment(3), 'qty' => 0];
+		$this->cart->update($dados_update);
 		redirect('cart');
 
 	}
