@@ -30,6 +30,7 @@
 		<?php echo anchor('./', 'Home');?> 
 		<?php echo anchor('cadastro', 'Cadastro'); ?>
 		<?php echo anchor('contato', 'Contato'); ?>
+		<?php echo anchor('cart', img('public/img/cart.png')); ?>
 	</div>
 
 	<?php

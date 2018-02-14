@@ -53,4 +53,11 @@
 
 </table>
 
-<p><?php echo form_submit('', 'Atualizar carrinho', array('class' => 'btn btn-primary btn-large')); ?></p>
+<p>
+<?php
+echo form_submit('', 'Atualizar Carrinho', array('class' => 'btn btn-primary btn-large'));
+
+echo anchor('cart/limpar', 'Limpar Carrinho', array('class' => 'btn btn-primary btn-large'));
+
+?>
+</p>

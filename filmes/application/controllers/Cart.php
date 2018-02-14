@@ -68,7 +68,12 @@ class Cart extends CI_Controller {
 		$dados_update = ['rowid' => $this->uri->segment(3), 'qty' => 0];
 		$this->cart->update($dados_update);
 		redirect('cart');
+	}
 
+	public function limpar() {
+
+		$this->cart->destroy();
+		redirect('cart');
 	}
 
 }
