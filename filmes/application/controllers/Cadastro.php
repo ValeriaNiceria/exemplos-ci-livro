@@ -10,12 +10,6 @@ class Cadastro extends  MY_Controller {
     }
 
     public function index() {
-        $data['view'] = 'cadastro.php';
-        $data['title'] = 'Cadastro';
-        $this->load->template('site', $data);
-    }
-
-    public function register() {
        
         if ($_POST) {
 

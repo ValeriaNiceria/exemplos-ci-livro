@@ -4,7 +4,7 @@ echo '<div class="fix"></div>';
 
 echo heading('Contato', 1);
 
-echo form_open('contato/enviar'); //(controller/método)
+echo form_open('contato'); //(controller/método)
 
 echo form_label('Nome:', 'nome');
 echo form_input(array(
@@ -59,7 +59,7 @@ echo form_close();
 
 echo (isset($erro)) ? '<div class="errors">' . $erro . '</div>' : '';
 
-echo (isset($enviado)) ? 'Email enviado com sucesso!' : '';
+echo (isset($enviado)) ? '<div class="success">' .$enviado. '</div>': '';
 
 
 ?>

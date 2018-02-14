@@ -4,7 +4,7 @@ echo '<div class="fix"></div>';
 
 echo heading("Cadastro de Filme", 1);
 
-echo form_open_multipart('cadastro/register');
+echo form_open_multipart('cadastro');
 
 echo form_label("Quantidade:", "qtd");
 echo form_input(array(
